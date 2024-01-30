@@ -46,6 +46,12 @@ const app = createApp({
         this.activeSlide = this.slides.length - 1;
       }
     },
+    goToSlide(currentIndex) {
+      this.activeSlide = currentIndex;
+    },
+  },
+  mounted() {
+    setInterval(this.nextSlide(), 3000);
   },
 });
 app.mount("#app");
