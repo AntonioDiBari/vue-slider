@@ -31,6 +31,7 @@ const app = createApp({
         },
       ],
       activeSlide: 0,
+      autoplay: 0,
     };
   },
   methods: {
@@ -49,9 +50,15 @@ const app = createApp({
     goToSlide(currentIndex) {
       this.activeSlide = currentIndex;
     },
+    startAutoplay() {
+      this.autoplay = setInterval(this.nextSlide, 3000);
+    },
+    stopAutoplay() {
+      clearInterval(this.autoplay);
+    },
   },
   mounted() {
-    setInterval(this.nextSlide(), 3000);
+    this.autoplay = setInterval(this.nextSlide, 3000);
   },
 });
 app.mount("#app");

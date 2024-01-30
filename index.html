@@ -33,7 +33,11 @@
   <body>
     <div id="app">
       <div class="container">
-        <div class="slider-wrapper">
+        <div
+          class="slider-wrapper"
+          @mouseover="stopAutoplay()"
+          @mouseleave="startAutoplay()"
+        >
           <!-- tabindex="0" -->
           <div class="item">
             <img
